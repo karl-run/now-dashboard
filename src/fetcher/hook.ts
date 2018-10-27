@@ -7,17 +7,17 @@ interface ResultWithLoading<T> {
   error: { message: string } | null
 }
 
-type FetchPromise<T> = () => Promise<T>
+type FetchPromise<T> = (...args: any[]) => Promise<T>
 
 function hookCreator<Y extends ErrorableRequest>(
   fetchPromise: FetchPromise<Y>,
-): (() => ResultWithLoading<Y>) {
-  return () => {
+): ((...args: any[]) => ResultWithLoading<Y>) {
+  return (...args: any[]) => {
     const [data, setData] = React.useState({ data: null, loading: true })
 
     if (data.loading == false) return { ...data }
 
-    fetchPromise().then(result => {
+    fetchPromise(...args).then(result => {
       if (!result.error) {
         setData({ loading: false, data: result, error: null })
       } else {

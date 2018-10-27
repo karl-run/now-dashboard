@@ -36,6 +36,8 @@ interface Response extends ErrorableRequest {
   deployments: Array<DeploymentType> | null
 }
 
-export default (): Promise<Response> => {
+const fetcher = (): Promise<Response> => {
   return fetch(URL, GET_OPTIONS).then(response => response.json())
 }
+
+export default fetcher;
