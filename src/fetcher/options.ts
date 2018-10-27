@@ -1,5 +1,6 @@
 const createOptions = (type: 'GET' | 'POST') => ({
   method: 'GET',
+  contentType: 'application/json',
   headers: {
     Authorization: `bearer ${process.env.REACT_APP_NOW_TOKEN}`,
   },
