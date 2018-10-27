@@ -34,7 +34,7 @@ function hookCreator<Y extends ErrorableRequest>(
       if (!options) return
       if (options.refetch == null) return
 
-      const intervalId = setInterval(doFetch, options.refetch)
+      const intervalId = setTimeout(doFetch, options.refetch)
 
       return () => {
         clearInterval(intervalId)
