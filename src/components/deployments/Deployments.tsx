@@ -39,13 +39,15 @@ const Deployments = () => {
 
   return (
     <div>
-      {Object.keys(groupedDeployments).map(key => (
-        <DeploymentGroup
-          key={key}
-          name={key}
-          deployments={groupedDeployments[key]}
-        />
-      ))}
+      {Object.keys(groupedDeployments)
+        .sort()
+        .map(key => (
+          <DeploymentGroup
+            key={key}
+            name={key}
+            deployments={groupedDeployments[key]}
+          />
+        ))}
     </div>
   )
 }

@@ -11,6 +11,18 @@
   position: relative;
 }
 
+@media screen and (max-width: 900px) {
+  .root {
+    flex: 0 0 calc(50% - 16px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .root {
+    flex: 0 0 100%;
+  }
+}
+
 .detailsView {
   min-height: 180px;
 }
@@ -45,6 +57,16 @@
   width: 16px;
   height: 100%;
   display: flex;
+}
+
+.v2 {
+  margin-left: 2px;
+  padding: 2px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: green;
 }
 
 .buildError {

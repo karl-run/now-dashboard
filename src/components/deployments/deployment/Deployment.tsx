@@ -46,7 +46,13 @@ const TypeIcon = ({ type }: { type: DeploymentVariant }) => {
   )
 }
 
-const DeploymentStatus = ({ state }: { state: DeploymentState }) => {
+const DeploymentStatus = ({
+  state,
+  isV2,
+}: {
+  state: DeploymentState
+  isV2: boolean
+}) => {
   let className
   switch (state) {
     case 'READY':
@@ -60,7 +66,12 @@ const DeploymentStatus = ({ state }: { state: DeploymentState }) => {
       break
   }
 
-  return <div className={className}>{state}</div>
+  return (
+    <div style={{ display: 'flex' }}>
+      <div className={className}>{state}</div>
+      {isV2 && <div className={css.v2}>V2</div>}
+    </div>
+  )
 }
 
 const Deployment = ({ deployment }: { deployment: DeploymentType }) => {
@@ -75,15 +86,23 @@ const Deployment = ({ deployment }: { deployment: DeploymentType }) => {
       <div className={css.top}>
         <TypeIcon type={deployment.type} />
         <a href={'https://' + deployment.url}>{deployment.name}</a>
-        <DeploymentStatus state={deployment.state} />
+        <DeploymentStatus
+          state={deployment.state}
+          isV2={
+            deployment.type === 'DOCKER' && deployment.instanceCount === null
+          }
+        />
       </div>
-      {deployment.type !== 'STATIC' && (
-        <div>
-          Instances:{' '}
-          {deployment.instanceCount == null ? 'None' : deployment.instanceCount}
-        </div>
+      {deployment.type !== 'STATIC' &&
+        deployment.instanceCount != null && (
+          <div>Instances: {deployment.instanceCount}</div>
+        )}
+      {detailView && (
+        <DeploymentDetails
+          uid={deployment.uid}
+          instanceCount={deployment.instanceCount}
+        />
       )}
-      {detailView && <DeploymentDetails uid={deployment.uid} instanceCount={deployment.instanceCount} />}
       <DetailsButton onClick={toggleState} isActive={detailView} />
     </div>
   )
