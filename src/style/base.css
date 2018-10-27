@@ -2,3 +2,7 @@ html {
   color: white;
   background-color: darkslategray;
 }
+
+a {
+  color: unset;
+}

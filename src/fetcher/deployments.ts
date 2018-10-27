@@ -3,20 +3,37 @@ import { ErrorableRequest } from './types'
 
 const URL = 'https://api.zeit.co/v3/now/deployments'
 
-interface Deployment {
+export type DeploymentState =
+  | 'DEPLOYING'
+  | 'DEPLOYMENT_ERROR'
+  | 'BOOTED'
+  | 'BUILDING'
+  | 'READY'
+  | 'BUILD_ERROR'
+  | 'FROZEN'
+
+export type DeploymentVariant = 'NPM' | 'DOCKER' | 'STATIC'
+
+export type ScaleType = {
+    current: number,
+    min: number,
+    max: number,
+}
+
+export interface DeploymentType {
   uid: string
   name: string
-  type: string // TODO type with constants
+  type: DeploymentVariant
   url: string
-  state: string // TODO type with constants
+  state: DeploymentState
   created: number
   creator: { uid: string }
   instanceCount: number | null
-  scale: any | null
+  scale: ScaleType | null
 }
 
 interface Response extends ErrorableRequest {
-  deployments: Array<Deployment> | null
+  deployments: Array<DeploymentType> | null
 }
 
 export default (): Promise<Response> => {

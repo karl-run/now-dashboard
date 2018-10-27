@@ -1,0 +1,35 @@
+.root {
+  color: darkslategray;
+  background-color: white;
+  padding: 8px;
+  box-sizing: border-box;
+  flex: 0 0 calc(33.33% - 16px);
+  min-height: 160px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top a {
+  flex: 0 1 80%;
+}
+
+.typeIcon {
+  width: 16px;
+  height: 100%;
+  display: flex;
+}
+
+.buildError {
+  background-color: red;
+}
+
+.buildReady {
+  padding: 2px;
+  color: white;
+  background-color: green;
+}

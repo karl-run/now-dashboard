@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.root::after {
+  content: '';
+  flex: 0 0 calc(33.33% - 16px);
+}
