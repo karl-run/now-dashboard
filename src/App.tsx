@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import "./App.css";
+import css from './App.module.css'
 
 class App extends Component {
   render() {
-    return <div className="App">hello</div>;
+    return <div className={css.AppRoot}>hello</div>
   }
 }
 
-export default App;
+export default App
