@@ -1,5 +1,5 @@
-import { GET_OPTIONS } from './options'
-import { ErrorableRequest } from './types'
+import { GET_OPTIONS } from '../options'
+import { ErrorableRequest } from '../types'
 
 const URL = 'https://api.zeit.co/v3/now/deployments'
 

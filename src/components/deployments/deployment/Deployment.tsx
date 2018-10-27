@@ -5,7 +5,7 @@ import {
   DeploymentType,
   DeploymentState,
   DeploymentVariant,
-} from '../../../fetcher/deployments'
+} from '../../../fetcher/fetchers/deployments'
 import DeploymentDetails from './deploymentdetails/DeploymentDetails'
 
 import css from './Deployment.module.css'
@@ -83,7 +83,7 @@ const Deployment = ({ deployment }: { deployment: DeploymentType }) => {
           {deployment.instanceCount == null ? 'None' : deployment.instanceCount}
         </div>
       )}
-      {detailView && <DeploymentDetails uid={deployment.uid} />}
+      {detailView && <DeploymentDetails uid={deployment.uid} instanceCount={deployment.instanceCount} />}
       <DetailsButton onClick={toggleState} isActive={detailView} />
     </div>
   )

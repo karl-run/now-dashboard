@@ -1,0 +1,30 @@
+.instanceBarRoot {
+  display: flex;
+  margin-bottom: 2px;
+}
+
+.instanceBarRoot > div:first-of-type {
+  flex: 0 0 10%;
+}
+
+.instanceBarRoot > div:nth-of-type(2) {
+  flex: 1 0 80%;
+}
+
+.instanceBarRoot > div:last-of-type {
+  flex: 0 1 90%;
+}
+
+.instanceBar {
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instanceBox {
+  width: 14px;
+  height: 14px;
+  background-color: green;
+  margin-right: 1px;
+  margin-bottom: 1px;
+}

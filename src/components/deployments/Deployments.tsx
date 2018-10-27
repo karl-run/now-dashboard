@@ -2,7 +2,7 @@ import React from 'react'
 import groupBy from 'lodash.groupby'
 
 import { useDeployments } from '../../fetcher'
-import { DeploymentType } from '../../fetcher/deployments'
+import { DeploymentType } from '../../fetcher/fetchers/deployments'
 
 import Deployment from './deployment/Deployment'
 
@@ -36,8 +36,6 @@ const Deployments = () => {
   }
 
   const groupedDeployments = groupBy(data.deployments, 'type')
-
-  console.log(groupedDeployments)
 
   return (
     <div>

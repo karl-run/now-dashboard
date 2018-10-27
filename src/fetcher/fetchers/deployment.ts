@@ -1,5 +1,5 @@
-import { GET_OPTIONS } from './options'
-import { ErrorableRequest } from './types'
+import { GET_OPTIONS } from '../options'
+import { ErrorableRequest } from '../types'
 import { DeploymentType } from './deployments'
 
 const createUrl = (uid: string) =>

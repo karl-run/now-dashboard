@@ -7,4 +7,5 @@
 .root::after {
   content: '';
   flex: 0 0 calc(33.33% - 16px);
+  max-width: 500px;
 }

@@ -4,6 +4,7 @@
   padding: 8px;
   box-sizing: border-box;
   flex: 0 0 calc(33.33% - 16px);
+  max-width: 500px;
   height: 69px;
   margin-bottom: 16px;
   border-radius: 3px;
