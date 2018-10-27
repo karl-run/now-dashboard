@@ -1,0 +1,6 @@
+{
+  "name": "now-dash",
+  "alias": "now-dash.now.sh",
+  "type": "static",
+  "public": false
+}

@@ -114,6 +114,7 @@ class Login extends React.Component<Props> {
       className={css.modal}
       overlayClassName={css.overlay}
       ariaHideApp={false}
+      shouldCloseOnEsc={false}
     >
       <form className={css.loginForm} onSubmit={this.handleFormSubmit}>
         <div>Log in with your email</div>
@@ -148,7 +149,7 @@ class Login extends React.Component<Props> {
             {this.state.isLoggedIn ? 'Log out' : 'Log in'}
           </button>
         </div>
-        {!this.state.isLoggedIn && <Splash />}
+        {!this.state.isLoggedIn && <Splash onLoginClick={this.handleLoginClick} />}
         {this.renderModal()}
       </div>
     )

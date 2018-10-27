@@ -6,6 +6,12 @@ import Splash from './splash/Splash'
 
 import css from './App.module.css'
 
+const Source = () => (
+  <div className={css.source}>
+    <a href="https://github.com/karl-run/now-dashboard">Github Source</a>
+  </div>
+)
+
 class App extends Component {
   state = {
     hasToken: false,
@@ -29,6 +35,7 @@ class App extends Component {
         </div>
         <Login onLoginChange={this.handleStorageChange} />
         {this.state.hasToken && <Deployments />}
+        <Source />
       </div>
     )
   }
