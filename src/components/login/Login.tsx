@@ -42,6 +42,7 @@ class Login extends React.Component<Props> {
     if (this.state.isLoggedIn) {
       localStorage.removeItem('now-token')
       this.setState({ isLoggedIn: false })
+      this.props.onLoginChange()
       return
     }
 
@@ -149,7 +150,9 @@ class Login extends React.Component<Props> {
             {this.state.isLoggedIn ? 'Log out' : 'Log in'}
           </button>
         </div>
-        {!this.state.isLoggedIn && <Splash onLoginClick={this.handleLoginClick} />}
+        {!this.state.isLoggedIn && (
+          <Splash onLoginClick={this.handleLoginClick} />
+        )}
         {this.renderModal()}
       </div>
     )
