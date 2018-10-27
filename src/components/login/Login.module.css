@@ -1,0 +1,89 @@
+.login {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.login button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.login button:disabled,
+.modal button:disabled {
+  opacity: 0.7;
+}
+
+.loginForm {
+  padding: 28px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.loginForm input {
+  margin: 8px;
+  padding: 4px;
+  border-radius: 3px;
+  border: 1px solid darkslategray;
+}
+
+.loginForm button {
+  max-width: 100px;
+  height: 28px;
+  align-self: center;
+  background: none;
+  border-radius: 3px;
+  border: 1px solid darkslategray;
+}
+
+.verificationPhrase {
+  width: 80%;
+}
+
+.verificationPhrase > div {
+  margin: 4px 0;
+}
+
+.verificationPhrase > div:last-of-type {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.submitError {
+  color: darkred;
+  width: 80%;
+  align-self: center;
+}
+
+.modal {
+  font-family: monospace;
+  color: darkslategray;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  height: 200px;
+  width: 350px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
