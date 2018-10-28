@@ -12,6 +12,16 @@
   border: none;
   cursor: pointer;
   text-decoration: underline;
+  position: relative;
+  width: 69px;
+  outline: none;
+}
+
+.login button > div {
+  left: 0;
+  position: absolute;
+  top: 0;
+  min-width: 69px;
 }
 
 .login button:disabled,

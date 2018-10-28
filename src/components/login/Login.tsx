@@ -3,6 +3,7 @@ import Modal from 'react-modal'
 
 import css from './Login.module.css'
 import Splash from '../splash/Splash'
+import Toggle from '../animations/Toggle'
 
 const REGISTRATION_URL = 'https://api.zeit.co/now/registration'
 
@@ -90,13 +91,10 @@ class Login extends React.Component<Props> {
   }
 
   verifyVerification = () => {
-    console.log(this.buildVerificationUrl())
-
     fetch(this.buildVerificationUrl(), { method: 'GET' })
       .then(response => response.json())
       .then(result => {
         if (result.error) {
-          console.log(result.error)
           this.verifyTimerId = setTimeout(this.verifyVerification, 2500)
           return
         }
@@ -147,7 +145,13 @@ class Login extends React.Component<Props> {
             onClick={this.handleLoginClick}
             disabled={this.state.showModal}
           >
-            {this.state.isLoggedIn ? 'Log out' : 'Log in'}
+            <Toggle show={this.state.isLoggedIn}>
+              {show =>
+                show
+                  ? props => <div style={props}>Log out</div>
+                  : props => <div style={props}>Log in</div>
+              }
+            </Toggle>
           </button>
         </div>
         {!this.state.isLoggedIn && (
