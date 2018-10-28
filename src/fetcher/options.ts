@@ -11,7 +11,7 @@ const createOptions = (type: 'GET' | 'POST') => {
   }
 }
 
-const GET_OPTIONS = createOptions('GET')
-const POST_OPTIONS = createOptions('POST')
+const getOptions = () => createOptions('GET')
+const postOptions = () => createOptions('POST')
 
-export { GET_OPTIONS, POST_OPTIONS }
+export { getOptions, postOptions }

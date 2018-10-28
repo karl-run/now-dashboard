@@ -113,7 +113,12 @@ class Login extends React.Component<Props> {
     <Modal open={this.state.showModal}>
       <form className={css.loginForm} onSubmit={this.handleFormSubmit}>
         <div>Log in with your email</div>
-        <input ref={this.input} type="email" required />
+        <input
+          disabled={this.state.submitting}
+          ref={this.input}
+          type="email"
+          required
+        />
         <button type="submit" disabled={this.state.submitting}>
           Submit
         </button>

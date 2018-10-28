@@ -19,31 +19,38 @@ function hookCreator<Y extends ErrorableRequest>(
 ): ((...args: any[]) => ResultWithLoading<Y>) {
   return (...args: any[]) => {
     const [data, setData] = React.useState({ data: null, loading: true })
+    const [errorCount, setErrorCount] = React.useState(0)
 
     const doFetch = () => {
       fetchPromise(...args).then(result => {
         if (!result.error) {
           setData({ loading: false, data: result, error: null })
         } else {
+          if (!(!options || options.refetch == null) && errorCount < 3) {
+            setErrorCount(errorCount + 1)
+            return
+          }
+
           setData({ loading: false, data: null, error: result.error.message })
         }
       })
     }
 
     useEffect(() => {
-      if (!options) return
-      if (options.refetch == null) return
+      if (!options || options.refetch == null) return
 
       const intervalId = setTimeout(doFetch, options.refetch)
 
       return () => {
-        clearInterval(intervalId)
+        clearTimeout(intervalId)
       }
     })
 
     if (data.loading == false) return { ...data }
 
-    doFetch()
+    if (errorCount === 0) {
+      doFetch()
+    }
 
     return { ...data }
   }

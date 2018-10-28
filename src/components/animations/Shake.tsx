@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Wiggle = Keyframes.Spring(async (next: any, _: any, ownProps: any) => {
-  console.log(ownProps)
   while (true) {
     await next({ right: 3, config: { duration: 69 } })
     await next({ right: -3, config: { duration: 69 } })

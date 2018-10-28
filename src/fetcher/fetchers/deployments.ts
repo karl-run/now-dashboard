@@ -1,4 +1,4 @@
-import { GET_OPTIONS } from '../options'
+import { getOptions } from '../options'
 import { ErrorableRequest } from '../types'
 
 const URL = 'https://api.zeit.co/v3/now/deployments'
@@ -15,9 +15,9 @@ export type DeploymentState =
 export type DeploymentVariant = 'NPM' | 'DOCKER' | 'STATIC'
 
 export type ScaleType = {
-    current: number,
-    min: number,
-    max: number,
+  current: number
+  min: number
+  max: number
 }
 
 export interface DeploymentType {
@@ -37,7 +37,7 @@ interface Response extends ErrorableRequest {
 }
 
 const fetcher = (): Promise<Response> => {
-  return fetch(URL, GET_OPTIONS).then(response => response.json())
+  return fetch(URL, getOptions()).then(response => response.json())
 }
 
-export default fetcher;
+export default fetcher

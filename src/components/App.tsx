@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import Deployments from './deployments/Deployments'
 import Login from './login/Login'
-import Splash from './splash/Splash'
 
 import css from './App.module.css'
 

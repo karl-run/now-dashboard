@@ -1,4 +1,4 @@
-import { GET_OPTIONS } from '../options'
+import { getOptions } from '../options'
 import { ErrorableRequest } from '../types'
 import { DeploymentType } from './deployments'
 
@@ -22,7 +22,7 @@ interface Response extends ErrorableRequest {
 }
 
 const fetcher = (uid: string): Promise<Response> => {
-  return fetch(createUrl(uid), GET_OPTIONS).then(response => response.json())
+  return fetch(createUrl(uid), getOptions()).then(response => response.json())
 }
 
 export default fetcher
