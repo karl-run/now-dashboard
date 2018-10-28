@@ -1,9 +1,11 @@
 import React from 'react'
-import Modal from 'react-modal'
 
-import css from './Login.module.css'
+import Modal from '../modal/Modal'
 import Splash from '../splash/Splash'
 import Toggle from '../animations/Toggle'
+
+import css from './Login.module.css'
+import DotsLoading from '../animations/DotsLoading'
 
 const REGISTRATION_URL = 'https://api.zeit.co/now/registration'
 
@@ -108,13 +110,7 @@ class Login extends React.Component<Props> {
   }
 
   renderModal = () => (
-    <Modal
-      isOpen={this.state.showModal}
-      className={css.modal}
-      overlayClassName={css.overlay}
-      ariaHideApp={false}
-      shouldCloseOnEsc={false}
-    >
+    <Modal open={this.state.showModal}>
       <form className={css.loginForm} onSubmit={this.handleFormSubmit}>
         <div>Log in with your email</div>
         <input ref={this.input} type="email" required />
@@ -126,7 +122,12 @@ class Login extends React.Component<Props> {
         <div className={css.submitError}>{this.state.error}</div>
       )}
       {this.state.submitting &&
-        !this.state.verificationPhrase && <div>Hang on...</div>}
+        !this.state.verificationPhrase && (
+          <div>
+            Hang on
+            <DotsLoading />
+          </div>
+        )}
       {this.state.verificationPhrase && (
         <div className={css.verificationPhrase}>
           <div>Click the verification in your email.</div>

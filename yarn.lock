@@ -897,6 +897,11 @@
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
   integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
 
+"@types/es6-shim@^0.31.37":
+  version "0.31.37"
+  resolved "https://registry.yarnpkg.com/@types/es6-shim/-/es6-shim-0.31.37.tgz#d01fa9b61a6692e57387dde5483b0255659ba70f"
+  integrity sha512-D9BRx0HXsIpa9Ldh/NcHYgL/PtfchL4CC0MtbGliWsTYDuzm9vl6/QeTigNxIhbSBai7QIuv+etQ9BtlFN7Uqw==
+
 "@types/lodash.groupby@^4.6.4":
   version "4.6.4"
   resolved "https://registry.yarnpkg.com/@types/lodash.groupby/-/lodash.groupby-4.6.4.tgz#4dbb730b0a8ad46915b7406d1e247cfd7a79b288"
