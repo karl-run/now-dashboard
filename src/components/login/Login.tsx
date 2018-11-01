@@ -66,7 +66,7 @@ class Login extends React.Component<Props> {
       method: 'POST',
       body: JSON.stringify({
         email,
-        tokenNake: "karl.run's Live Dashboard",
+        tokenName: "karl.run's Live Dashboard",
       }),
     })
       .then(response => response.json())
