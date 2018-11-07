@@ -11,7 +11,8 @@
   border: none;
   cursor: pointer;
   padding: 4px 8px;
-  color: var(--font-color)
+  color: var(--font-color);
+  border-radius: 3px;
 }
 
 .themePicker button:hover {
@@ -27,6 +28,7 @@
   padding-top: 2px;
 }
 
-.selectedOption {
+.optionsBox .selectedOption {
+  background-color: var(--positive-color-contrast);
   color: var(--positive-color);
 }

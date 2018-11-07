@@ -22,7 +22,6 @@ class ThemeLoader extends Component<Props> {
   }
 
   render() {
-    console.log(this.props.theme)
     if (this.props.theme == null) return null
 
     return this.props.children

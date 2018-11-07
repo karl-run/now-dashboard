@@ -24,7 +24,7 @@ const dark = {
   'contrast-font-color': 'darkslategray',
 }
 
-export const availableThemes = ['light', 'dark']
+export const availableThemes = ['dark', 'light']
 
 export default (theme: 'light' | 'dark' | null) => {
   switch (theme) {
