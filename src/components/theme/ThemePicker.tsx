@@ -14,7 +14,7 @@ interface Props {
 }
 
 const ThemePicker = ({ onThemeChange, selected }: Props) => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
   return (
     <SlideIn horizontal={false} offset={20} delay={500}>
