@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <ThemeLoader theme={this.state.theme}>
         <div className={css.AppRoot}>
-          <div>
+          <div className={css.titleHeader}>
             live dashboard for <a href="https://zeit.co/now">zeit now</a>
           </div>
           <div className={css.upperRightCornerBox}>

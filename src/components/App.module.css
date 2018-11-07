@@ -3,12 +3,26 @@
   margin: 16px;
 }
 
-.source {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
+@media screen and (min-width: 500px) {
+  .source {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+  }
 }
 
+@media screen and (max-width: 500px) {
+  .titleHeader {
+    max-width: 50%;
+  }
+
+  .source a {
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .upperRightCornerBox {
   display: flex;
   position: absolute;
