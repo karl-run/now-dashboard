@@ -1,6 +1,6 @@
 .modal {
     font-family: monospace;
-    color: var(--color-contrast);
+    color: var(--contrast-font-color);
     position: absolute;
     top: 30%;
     left: 50%;
