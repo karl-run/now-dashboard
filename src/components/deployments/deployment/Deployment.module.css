@@ -28,6 +28,7 @@
 }
 
 .detailsButton {
+  color: var(--contrast-font-color);
   background: none;
   border: none;
   cursor: pointer;

@@ -4,15 +4,17 @@
   border: none;
   cursor: pointer;
   margin-right: 8px;
+  z-index: 2;
 }
 
 .themePicker button {
-  background: none;
   border: none;
   cursor: pointer;
   padding: 4px 8px;
-  color: var(--font-color);
+  color: var(--contrast-font-color);
+  background-color: var(--contrast-background);
   border-radius: 3px;
+  margin-bottom: 2px;
 }
 
 .themePicker button:hover {
