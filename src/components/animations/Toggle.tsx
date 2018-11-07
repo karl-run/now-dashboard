@@ -13,7 +13,7 @@ const Toggle = ({ show, children }: Props) => (
     leave={{ opacity: 0, top: 20 }}
     items={show}
   >
-    {isShow => children(show)}
+    {show => children(show)}
   </Transition>
 )
 

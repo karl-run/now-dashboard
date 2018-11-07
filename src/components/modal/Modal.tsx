@@ -13,7 +13,7 @@ const modalClosed = { opacity: 0, top: '32%' }
 const modalOpen = { opacity: 1, top: '30%' }
 
 const Modal = ({ open, children }: Props) => (
-  <Spring from={closed} to={open ? modalOpen : modalClosed}>
+  <Spring from={modalClosed} to={open ? modalOpen : modalClosed}>
     {props => (
       <ReactModal
         isOpen={open}

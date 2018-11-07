@@ -6,11 +6,7 @@ import Shake from '../animations/Shake'
 
 import css from './Splash.module.css'
 
-interface Props {
-  onLoginClick: () => void
-}
-
-const Splash = ({ onLoginClick }: Props) => (
+const Splash = () => (
   <div className={css.splash}>
     <SlideIn delay={350}>
       {props => <h1 style={props}>A real time dashboard for zeit's now</h1>}
@@ -26,13 +22,9 @@ const Splash = ({ onLoginClick }: Props) => (
       {slide => (
         <Shake interval={2500}>
           {shake => (
-            <button
-              style={{ ...slide, ...shake }}
-              type="button"
-              onClick={onLoginClick}
-            >
+            <div style={{ ...slide, ...shake }}>
               <h2>Log in to get started</h2>
-            </button>
+            </div>
           )}
         </Shake>
       )}

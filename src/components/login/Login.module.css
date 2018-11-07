@@ -1,18 +1,15 @@
 .login {
+  position: relative;
   display: flex;
   justify-content: flex-end;
-  position: absolute;
-  top: 14px;
-  right: 14px;
 }
 
 .login button {
-  color: white;
+  color: var(--font-color);
   background: none;
   border: none;
   cursor: pointer;
   text-decoration: underline;
-  position: relative;
   width: 69px;
   outline: none;
 }

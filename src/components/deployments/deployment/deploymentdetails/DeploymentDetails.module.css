@@ -24,7 +24,7 @@
 .instanceBox {
   width: 14px;
   height: 14px;
-  background-color: green;
+  background-color: var(--positive-color);
   margin-right: 1px;
   margin-bottom: 1px;
 }

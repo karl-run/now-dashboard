@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Modal from '../modal/Modal'
-import Splash from '../splash/Splash'
 import Toggle from '../animations/Toggle'
 
 import css from './Login.module.css'
@@ -66,24 +65,24 @@ class Login extends React.Component<Props> {
       method: 'POST',
       body: JSON.stringify({
         email,
-        tokenName: "karl.run's Live Dashboard",
+        tokenName: 'karl.run\'s Live Dashboard',
       }),
     })
-      .then(response => response.json())
-      .then(result => {
-        if (result.error) {
-          this.setState({ error: result.error.message })
-          return
-        }
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        this.setState({ error: result.error.message })
+        return
+      }
 
-        this.setState({
-          verificationPhrase: result.securityCode,
-          token: result.token,
-          email: email,
-        })
-
-        this.verifyTimerId = setTimeout(this.verifyVerification, 2500)
+      this.setState({
+        verificationPhrase: result.securityCode,
+        token: result.token,
+        email: email,
       })
+
+      this.verifyTimerId = setTimeout(this.verifyVerification, 2500)
+    })
   }
 
   buildVerificationUrl = () => {
@@ -94,19 +93,19 @@ class Login extends React.Component<Props> {
 
   verifyVerification = () => {
     fetch(this.buildVerificationUrl(), { method: 'GET' })
-      .then(response => response.json())
-      .then(result => {
-        if (result.error) {
-          this.verifyTimerId = setTimeout(this.verifyVerification, 2500)
-          return
-        }
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        this.verifyTimerId = setTimeout(this.verifyVerification, 2500)
+        return
+      }
 
-        localStorage.setItem('now-token', result.token)
+      localStorage.setItem('now-token', result.token)
 
-        this.setState({ isLoggedIn: true, showModal: false }, () => {
-          this.props.onLoginChange()
-        })
+      this.setState({ isLoggedIn: true, showModal: false }, () => {
+        this.props.onLoginChange()
       })
+    })
   }
 
   renderModal = () => (
@@ -127,12 +126,12 @@ class Login extends React.Component<Props> {
         <div className={css.submitError}>{this.state.error}</div>
       )}
       {this.state.submitting &&
-        !this.state.verificationPhrase && (
-          <div>
-            Hang on
-            <DotsLoading />
-          </div>
-        )}
+      !this.state.verificationPhrase && (
+        <div>
+          Hang on
+          <DotsLoading />
+        </div>
+      )}
       {this.state.verificationPhrase && (
         <div className={css.verificationPhrase}>
           <div>Click the verification in your email.</div>
@@ -145,7 +144,7 @@ class Login extends React.Component<Props> {
 
   render() {
     return (
-      <div>
+      <>
         <div className={css.login}>
           <button
             onClick={this.handleLoginClick}
@@ -160,11 +159,8 @@ class Login extends React.Component<Props> {
             </Toggle>
           </button>
         </div>
-        {!this.state.isLoggedIn && (
-          <Splash onLoginClick={this.handleLoginClick} />
-        )}
         {this.renderModal()}
-      </div>
+      </>
     )
   }
 }

@@ -1,6 +1,6 @@
 .root {
-  color: darkslategray;
-  background-color: white;
+  color: var(--contrast-font-color);
+  background-color: var(--contrast-background);
   padding: 8px;
   box-sizing: border-box;
   flex: 0 0 calc(33.33% - 16px);
@@ -65,16 +65,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  background-color: green;
+  color: var(--positive-color-contrast);
+  background-color: var(--positive-color);
 }
 
 .buildError {
-  background-color: red;
+  background-color: var(--negative-color);
 }
 
 .buildReady {
   padding: 2px;
-  color: white;
-  background-color: green;
+  color: var(--positive-color-contrast);
+  background-color: var(--positive-color);
 }
