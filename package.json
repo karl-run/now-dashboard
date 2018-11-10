@@ -13,6 +13,7 @@
     "delay": "^4.1.0",
     "lodash.groupby": "^4.6.0",
     "react": "^16.7.0-alpha.0",
+    "react-css-vars": "^1.0.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-modal": "^3.6.1",
     "react-spring": "^6.1.8"

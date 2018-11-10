@@ -56,13 +56,12 @@ export const availableThemes = ['dark', 'light', 'black']
 
 export default (theme: string | null) => {
   switch (theme) {
+    default:
     case 'dark':
       return { ...base, ...dark }
     case 'light':
       return { ...base, ...light }
     case 'black':
       return { ...base, ...black }
-    default:
-      throw Error('Oops: Invalid theme')
   }
 }

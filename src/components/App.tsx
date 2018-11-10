@@ -41,7 +41,7 @@ class App extends Component {
 
     if (theme != null) {
       this.setState({ theme })
-      return;
+      return
     }
 
     localStorage.setItem('app-theme', 'dark')
@@ -51,23 +51,23 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeLoader theme={this.state.theme}>
-        <div className={css.AppRoot}>
-          <div className={css.titleHeader}>
-            live dashboard for <a href="https://zeit.co/now">zeit now</a>
-          </div>
-          <div className={css.upperRightCornerBox}>
+      <div className={css.AppRoot}>
+        <div className={css.titleHeader}>
+          live dashboard for <a href="https://zeit.co/now">zeit now</a>
+        </div>
+        <div className={css.upperRightCornerBox}>
+          {this.state.theme && (
             <ThemePicker
               onThemeChange={this.handleThemeChange}
               selected={this.state.theme}
             />
-            <Login onLoginChange={this.handleStorageChange} />
-          </div>
-          {this.state.hasToken && <Deployments />}
-          {!this.state.hasToken && <Splash />}
-          <Source />
+          )}
+          <Login onLoginChange={this.handleStorageChange} />
         </div>
-      </ThemeLoader>
+        {this.state.hasToken && <Deployments />}
+        {!this.state.hasToken && <Splash />}
+        <Source />
+      </div>
     )
   }
 }
